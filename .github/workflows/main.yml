@@ -1,0 +1,28 @@
+name: Exemplo de GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  push_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passos do Push
+        run: |
+          echo "Hello Push"
+          # Adicione aqui os comandos adicionais que deseja executar durante um push
+          # por exemplo, build, testes, implantação, etc.
+
+  pr_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passos do Pull Request
+        run: |
+          echo "Hello Pull Request"
+          # Adicione aqui os comandos adicionais que deseja executar durante um pull request
+          # por exemplo, revisão de código, testes, verificações de estilo, etc.
