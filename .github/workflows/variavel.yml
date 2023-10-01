@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Instalar Dependências
+        run: npm install
+
       - name: Verificar Tipo de Evento
         run: |
           echo "Minha Variável de Ambiente: $MINHA_VARIAVEL"
