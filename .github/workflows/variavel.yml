@@ -9,8 +9,10 @@ jobs:
   minha_job:
     runs-on: ubuntu-latest
     env:
-      MINHA_VARIAVEL: 1 
+      MINHA_VARIAVEL: 1
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Configurar Node.js
         uses: actions/setup-node@v2
