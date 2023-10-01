@@ -1,0 +1,17 @@
+name: Exemplo de GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  minha_job:
+    runs-on: ubuntu-latest
+    env:
+      MINHA_VARIAVEL: ${{ 1 }}
+    steps:
+      - name: Verificar Tipo de Evento
+        run: |
+          echo "Minha Variável de Ambiente: $MINHA_VARIAVEL"
+          # Agora você pode acessar a variável de ambiente MINHA_VARIAVEL neste job
