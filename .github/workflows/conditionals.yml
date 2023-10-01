@@ -1,0 +1,34 @@
+name: Exemplo de GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  push_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar Tipo de Evento
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            echo "Executando Push Job"
+            # Adicione aqui os comandos para o job de push
+          else
+            echo "Pulando Push Job"
+          fi
+
+  pr_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar Tipo de Evento
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "Executando Pull Request Job"
+            # Adicione aqui os comandos para o job de pull request
+          else
+            echo "Pulando Pull Request Job"
+          fi
