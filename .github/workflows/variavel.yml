@@ -11,7 +11,14 @@ jobs:
     env:
       MINHA_VARIAVEL: ${{ 1 }}
     steps:
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
       - name: Verificar Tipo de Evento
         run: |
           echo "Minha Variável de Ambiente: $MINHA_VARIAVEL"
           # Agora você pode acessar a variável de ambiente MINHA_VARIAVEL neste job
+          node ./src/index.js
