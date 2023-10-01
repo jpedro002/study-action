@@ -9,7 +9,7 @@ jobs:
   minha_job:
     runs-on: ubuntu-latest
     env:
-      MINHA_VARIAVEL: 1 # Corrigido para definir a variável como o valor 1
+      MINHA_VARIAVEL: 1 
     steps:
 
       - name: Configurar Node.js
