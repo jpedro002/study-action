@@ -1,0 +1,16 @@
+name: Exemplo de GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  list-env-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Listar variáveis de ambiente
+        run: |
+          for var in $(compgen -e); do
+            echo "$var=${!var}"
+          done
