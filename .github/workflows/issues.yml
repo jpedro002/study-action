@@ -19,6 +19,7 @@ jobs:
       - name: Instalar dependências
         run: |
             npm install 
+            npm install @actions/github
 
       - name: Executar o script JavaScript
         run: node teste-issue.js
