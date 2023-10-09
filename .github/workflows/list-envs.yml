@@ -4,7 +4,7 @@ on:
   pull_request:
     types:
       - opened
-      - edited
+      - closed
   issues:
     types:
       - opened
@@ -16,6 +16,21 @@ jobs:
   list-env-variables:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout do código
+        uses: actions/checkout@v2
+
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: |
+            npm install 
+            npm install @actions/github
+
+      - name: Executar o script JavaScript
+        run: node script.js
       
       - name: Mostrar o valor do commit
         run: echo "O valor do commit é ${{ github.sha }}"
@@ -26,9 +41,8 @@ jobs:
 
       - name: Criar enviroment github
         env:
-            GITHUB_OBJECT: ${{ toJson(github) }}
+          GITHUB_OBJECT: ${{ toJson(github) }}
         run: echo "O valor da env github é ${{ env.GITHUB_OBJECT }}"
-      
       
       - name: Listar variáveis de ambiente
         run: |
