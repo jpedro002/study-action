@@ -16,6 +16,20 @@ jobs:
   list-env-variables:
     runs-on: ubuntu-latest
     steps:
+      
+      - name: Mostrar o valor do commit
+        run: echo "O valor do commit é ${{ github.sha }}"
+
+      - name: Verificar se o pull request foi mesclado
+        if: github.event.pull_request.merged == true
+        run: echo "O pull request foi mesclado!"
+
+      - name: Criar enviroment github
+        env: 
+          GITHUB_OBJETC: ${{ github }}
+        run: echo "O valor da env github é ${{ env.GITHUB_OBJECT }}"
+      
+      
       - name: Listar variáveis de ambiente
         run: |
           for var in $(compgen -e); do
