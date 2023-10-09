@@ -34,7 +34,6 @@ jobs:
       
       - name: Mostrar o valor do commit
         run: |
-          echo "O valor do commit é ${{ github.sha }}"
           echo "O valor do adasda é ${{ github.event.pull_request.merged }}"
 
       - name: Criar enviroment github
