@@ -1,9 +1,9 @@
-const { GitHub, context } = require('@actions/github');
+const { getOctokit, context } = require('@actions/github');
 
 async function run() {
   try {
     const token = process.env.GITHUB_TOKEN;
-    const octokit = new GitHub(token);
+    const octokit = getOctokit(token);
 
     const issueNumber = context.payload.issue.number;
 
