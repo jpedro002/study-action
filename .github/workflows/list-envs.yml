@@ -1,9 +1,16 @@
 name: Exemplo de GitHub Action
 
 on:
+  pull_request:
+    types:
+      - opened
+      - edited
+  issues:
+    types:
+      - opened
   push:
     branches:
-      - main
+      - '*'
 
 jobs:
   list-env-variables:
