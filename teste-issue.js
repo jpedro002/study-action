@@ -1,15 +1,16 @@
-const github = require('@actions/github');
+const { GitHub, context } = require('@actions/github');
 
 async function run() {
   try {
-    const octokit = new github.getOctokit(process.env.GITHUB_TOKEN);
+    const token = process.env.GITHUB_TOKEN;
+    const octokit = new GitHub(token);
 
-    const issueNumber = github.context.payload.issue.number;
+    const issueNumber = context.payload.issue.number;
 
     // Faz uma solicitação para obter detalhes da issue
     const { data: issue } = await octokit.issues.get({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
+      owner: context.repo.owner,
+      repo: context.repo.repo,
       issue_number: issueNumber,
     });
 
