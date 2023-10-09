@@ -25,8 +25,8 @@ jobs:
         run: echo "O pull request foi mesclado!"
 
       - name: Criar enviroment github
-        env: 
-          GITHUB_OBJETC: ${{ github }}
+        env:
+            GITHUB_OBJECT: ${{ toJson(github) }}
         run: echo "O valor da env github é ${{ env.GITHUB_OBJECT }}"
       
       
