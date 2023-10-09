@@ -1,10 +1,9 @@
-name: Exemplo de GitHub Action
+name: Exemplo de GitHub PUUULLL REQUEST 
 
 on:
   pull_request:
-    types:
-      - opened
-      - closed
+        types: [opened,closed]
+        
   
 
 jobs:
