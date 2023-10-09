@@ -2,7 +2,7 @@ const { getOctokit, context, } = require('@actions/github');
 const github = require("@actions/github");
 
 
-console.log(`O nome do evento é: ${JSON.stringify(github.context,null,2)}`);
+console.log(`O nome do evento é: ${JSON.stringify(github.context.payload.issue.body,null,2)}`);
 
 async function run() {
   try {
