@@ -17,25 +17,10 @@ console.log(`O nome do evento é: ${JSON.stringify(context,null,2)}`);
 console.log(`O nome do evento é: ${context.eventName}`);
 
 
-
-
-async function run() {
-  const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
-
-  const pullRequest = github.context.payload.pull_request;
-
-  if (pullRequest && pullRequest.merged === true) {
-    console.log('A solicitação de pull request foi mesclada com sucesso.11');
-  } else {
-    console.log('A solicitação de pull request não foi mesclada. 11');
-  }
-}
-
-
 if (context.payload.pull_request && context.payload.pull_request.merged) {
   console.log("A solicitação de pull request foi mesclada com sucesso.22");
 } else {
   console.log("A solicitação de pull request não foi mesclada.22");
 }
-run();
+
 
