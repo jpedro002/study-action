@@ -46,6 +46,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Mostrar o valor do contexto do GitHub
-      run: |
-        echo "Contexto do GitHub: ${{ github }}"
+    - name: Dump GitHub context
+      id: github_context_step
+      run: echo $JSON
+      env:
+        JSON: ${{ toJSON(github) }}
