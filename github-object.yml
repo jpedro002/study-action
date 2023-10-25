@@ -1,0 +1,51 @@
+name: GitHub view gh obj
+
+on:
+  issues:
+    types:
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - opened
+      - edited
+      - closed
+      - reopened
+  pull_request:
+    types:
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - opened
+      - edited
+      - closed
+      - reopened
+      - synchronize
+      - converted_to_draft
+      - ready_for_review
+      - locked
+      - unlocked
+      - review_requested
+      - review_request_removed
+      - auto_merge_enabled
+      - auto_merge_disabled
+
+jobs:
+  process_event:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Perform actions based on event
+      run: |
+        echo "Event type: ${{ github.event_name }}"
+        echo "Action: ${{ github.event.action }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Mostrar o valor do contexto do GitHub
+      run: |
+        echo "Contexto do GitHub: ${{ toJson(github) }}"
