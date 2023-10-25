@@ -1,6 +1,8 @@
 name: GitHub view gh obj
 
 on:
+  issue_comment:
+    types: [created, deleted]
   issues:
     types:
       - assigned
