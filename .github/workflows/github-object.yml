@@ -48,4 +48,4 @@ jobs:
 
     - name: Mostrar o valor do contexto do GitHub
       run: |
-        echo "Contexto do GitHub: ${{ toJson(github) }}"
+        echo "Contexto do GitHub: ${{ github }}"
